@@ -1,0 +1,584 @@
+[
+    {
+        "id": "0b5c41638757c5a2",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0cb1ce19c757a317",
+        "type": "group",
+        "z": "0b5c41638757c5a2",
+        "name": "Edit Sensor Address",
+        "style": {
+            "label": true,
+            "stroke": "#ff0000",
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "2130f90783d0b309",
+            "816a9307d557c1b2",
+            "a0c8cfd285c8f4e1"
+        ],
+        "x": 14,
+        "y": 379,
+        "w": 532,
+        "h": 122
+    },
+    {
+        "id": "397ec793c13a0c29",
+        "type": "group",
+        "z": "0b5c41638757c5a2",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d73f96d7dd36807e",
+            "a5a6e788344c8005",
+            "ab9afeb51cd699f4",
+            "266c9166f0e09db9",
+            "8a874757fef69c9a",
+            "76fda9220a4e5f3d"
+        ],
+        "x": 14,
+        "y": 239,
+        "w": 822,
+        "h": 122
+    },
+    {
+        "id": "41d0f1d18001370d",
+        "type": "group",
+        "z": "0b5c41638757c5a2",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f3a1dc21170f8207",
+            "83333e6179854ffa",
+            "c8d93ccbbddf3450",
+            "7ed345766ad5f48e",
+            "9d53b889c2b33acf",
+            "0bbac065a48fbba6",
+            "0deda25ac902e51c",
+            "1934c915889037b2",
+            "8df95b8b20147b27",
+            "6abccc3a72e81c5b",
+            "4016957a2d69ca96",
+            "c7848013f2c8f740",
+            "aff614e4c08bca1a"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 812,
+        "h": 202
+    },
+    {
+        "id": "f3a1dc21170f8207",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "",
+        "property": "payload.mode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "FLY",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "RUN",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ACK",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "7ed345766ad5f48e"
+            ],
+            [
+                "9d53b889c2b33acf"
+            ],
+            [
+                "6abccc3a72e81c5b"
+            ]
+        ]
+    },
+    {
+        "id": "83333e6179854ffa",
+        "type": "ncd-gateway-node",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "",
+        "connection": "743bf7e6e51c5fc0",
+        "unknown_devices": true,
+        "outputs": 2,
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "f3a1dc21170f8207",
+                "aff614e4c08bca1a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c8d93ccbbddf3450",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "DATA",
+        "property": "payload.addr",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor_addr",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 60,
+        "wires": [
+            [
+                "0bbac065a48fbba6"
+            ]
+        ]
+    },
+    {
+        "id": "7ed345766ad5f48e",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "FLY",
+        "property": "payload.mac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor_addr",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "1934c915889037b2"
+            ]
+        ]
+    },
+    {
+        "id": "9d53b889c2b33acf",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "RUN",
+        "property": "payload.mac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor_addr",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "0deda25ac902e51c"
+            ]
+        ]
+    },
+    {
+        "id": "0bbac065a48fbba6",
+        "type": "debug",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "DATA",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0deda25ac902e51c",
+        "type": "debug",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "RUN",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1934c915889037b2",
+        "type": "link out",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "d73f96d7dd36807e"
+        ],
+        "x": 695,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d73f96d7dd36807e",
+        "type": "link in",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "link in 1",
+        "links": [
+            "1934c915889037b2"
+        ],
+        "x": 55,
+        "y": 320,
+        "wires": [
+            [
+                "a5a6e788344c8005",
+                "76fda9220a4e5f3d"
+            ]
+        ]
+    },
+    {
+        "id": "a5a6e788344c8005",
+        "type": "function",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "Read Full Scale Range",
+        "func": "msg.payload = {};\nmsg.payload.data = [244, 79, 0, 0, 101, 12];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "ab9afeb51cd699f4"
+            ]
+        ]
+    },
+    {
+        "id": "ab9afeb51cd699f4",
+        "type": "change",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "Assign Address",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.address",
+                "pt": "msg",
+                "to": "sensor_addr",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "8a874757fef69c9a"
+            ]
+        ]
+    },
+    {
+        "id": "266c9166f0e09db9",
+        "type": "link out",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "8df95b8b20147b27"
+        ],
+        "x": 795,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8df95b8b20147b27",
+        "type": "link in",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "link in 2",
+        "links": [
+            "266c9166f0e09db9"
+        ],
+        "x": 55,
+        "y": 120,
+        "wires": [
+            [
+                "83333e6179854ffa",
+                "c7848013f2c8f740"
+            ]
+        ]
+    },
+    {
+        "id": "6abccc3a72e81c5b",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "ACK",
+        "property": "payload.mac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor_addr",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "4016957a2d69ca96"
+            ]
+        ]
+    },
+    {
+        "id": "4016957a2d69ca96",
+        "type": "debug",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "CFG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c7848013f2c8f740",
+        "type": "debug",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "CMD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "aff614e4c08bca1a",
+        "type": "switch",
+        "z": "0b5c41638757c5a2",
+        "g": "41d0f1d18001370d",
+        "name": "",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor_data",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "c8d93ccbbddf3450"
+            ]
+        ]
+    },
+    {
+        "id": "8a874757fef69c9a",
+        "type": "delay",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "750",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "266c9166f0e09db9"
+            ]
+        ]
+    },
+    {
+        "id": "76fda9220a4e5f3d",
+        "type": "debug",
+        "z": "0b5c41638757c5a2",
+        "g": "397ec793c13a0c29",
+        "name": "FLY",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2130f90783d0b309",
+        "type": "comment",
+        "z": "0b5c41638757c5a2",
+        "g": "0cb1ce19c757a317",
+        "name": "Enter Sensor ADDR In inject Node",
+        "info": "",
+        "x": 220,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "816a9307d557c1b2",
+        "type": "inject",
+        "z": "0b5c41638757c5a2",
+        "g": "0cb1ce19c757a317",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "00:13:a2:00:42:37:35:d6",
+        "payloadType": "str",
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "a0c8cfd285c8f4e1"
+            ]
+        ]
+    },
+    {
+        "id": "a0c8cfd285c8f4e1",
+        "type": "change",
+        "z": "0b5c41638757c5a2",
+        "g": "0cb1ce19c757a317",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sensor_addr",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "743bf7e6e51c5fc0",
+        "type": "ncd-gateway-config",
+        "name": "",
+        "comm_type": "serial",
+        "ip_address": "",
+        "tcp_port": "2101",
+        "port": "/dev/tty.usbserial-AB0JUTFR",
+        "baudRate": "115200",
+        "pan_id": "7FFF",
+        "rssi": false
+    }
+]
